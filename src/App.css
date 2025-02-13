@@ -1,0 +1,92 @@
+@font-face {
+  font-family: Pinky;
+  src: url('/Amorlate.otf');
+}
+
+@font-face {
+  font-family: Coco;
+  src: url('/Cocogoose-Pro-Bold-Italic-trial.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Pinky, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.slider {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  max-height: 100vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.campero-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+h1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1.5rem, 3vw, 3rem); 
+}
+
+.remove-button {
+  position: absolute;
+  bottom: 10%;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.remove-button.left {
+  left: 110%;
+}
+
+.remove-button.right {
+  right: 110%;
+}
+
+.remove-button:hover {
+  transform: scale(1.2);
+}
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(1rem, 5vw, 1.5rem); 
+  }
+}

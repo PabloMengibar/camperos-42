@@ -1,0 +1,256 @@
+.welcome-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+
+.image-slider {
+    position: absolute;
+    left: 0%;
+    top: -17%;
+    height: 130vh;
+    width: 250px;
+    overflow: hidden;
+    border: 10px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    background: radial-gradient(#222, #111);
+    transform: rotate(-10deg);
+    overflow: hidden;
+}
+
+.image-slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/images/noise-texture.png");
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    animation: flicker 2s infinite;
+}
+
+.slider-track {
+    display: flex;
+    flex-direction: column;
+    animation: scrollVertical 20s linear infinite;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    filter: sepia(20%) contrast(90%) brightness(85%);
+    border-radius: 5px;
+}
+
+@keyframes scrollVertical {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-title {
+    font-size: 3.5rem;
+    color: #121212;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 1.2rem;
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+.welcome-scroll-text {
+    font-size: 1.2rem;
+    color: #999;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.about-us-content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: 70%;
+    flex-direction: row;
+}
+
+.about-us-photo {
+    margin: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-us-text h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-us-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Media Queries para Responsive Design */
+
+@media (max-width: 1024px) {
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+
+    .about-us-content {
+        max-width: 90%;
+    }
+
+    .about-us-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-us-text p {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 900px) {
+    .image-slider {
+        position: fixed;
+        top: auto;
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%) rotate(0deg);
+        width: 120%;
+        height: 150px;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+    }
+    .slider-image {
+        height: 150px;
+    }
+    .slider-track {
+        flex-direction: row;
+        animation: scrollHorizontal 10s linear infinite;
+    }
+
+    .slider-image {
+        margin-bottom: 0; 
+        margin-right: 15px;
+    }
+
+    @keyframes scrollHorizontal {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}
+@media (max-width: 768px) {
+    .image-slider{
+        height: 120px;
+    }
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+    }
+
+    .welcome-scroll-text {
+        font-size: 1rem;
+    }
+
+    .about-us-content {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .about-us-photo {
+        width: 100px;
+        height: 100px;
+        margin: 15px;
+    }
+
+    .about-us-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-us-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+    .image-slider{
+        height: 100px;
+    }
+    .welcome-text {
+        font-size: 0.9rem;
+    }
+
+    .welcome-scroll-text {
+        font-size: 0.9rem;
+    }
+
+    .about-us-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .about-us-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .about-us-text p {
+        font-size: 0.8rem;
+    }
+}
